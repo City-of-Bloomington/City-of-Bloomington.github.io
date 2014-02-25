@@ -1,4 +1,4 @@
 name: City of Bloomington
 markdown: redcarpet
 pygments: true
-baseurl: /
+baseurl:
