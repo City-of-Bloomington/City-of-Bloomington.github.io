@@ -1,4 +1,4 @@
 name: City of Bloomington
-markdown: redcarpet
+markdown: rdiscount
 pygments: true
 baseurl:
