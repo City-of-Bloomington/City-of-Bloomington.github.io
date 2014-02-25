@@ -14,6 +14,7 @@ apr and apr-util.
 
 ## Extract
 The apr and apr-util will need to be uncompressed and moved to the Apache source code's srclib directory.
+
 ```bash
 sudo tar xzvf httpd-2.4.x.tar.gz
 sudo tar xzvf apr-1.4.x.tar.gz
@@ -24,6 +25,7 @@ sudo mv apr-util-1.5.x httpd-2.4.x/srclib/apr-util
 
 ## Compile
 `cd /usr/local/src/httpd-2.4.x`
+
 ```bash
 sudo ./configure --prefix=/usr/local/apache \
 --with-included-apr \
@@ -53,6 +55,7 @@ It's worth scanning over `/usr/local/apache/conf/httpd.conf` to get a feel for w
 
 ### Load modules
 Apache 2.4 uses dynamic modules for everything. The default httpd.conf, however, does not have all our needed modules uncommented out of the box. You'll need to make sure to uncomment these modules.
+
 ```apache
 LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
 LoadModule slotmem_shm_module modules/mod_slotmem_shm.so
@@ -62,6 +65,7 @@ LoadModule rewrite_module modules/mod_rewrite.so
 
 ### Global site setup
 Here's some more snippits to look for and change in `httpd.conf`.  They are in the order they appear in the conf file.
+
 ```apache
 # User/Group: The name (or #number) of the user/group to run httpd as.
 # It is usually good practice to create a dedicated user and group for
@@ -118,12 +122,14 @@ ErrorLog "/var/log/httpd/error.log"
 If you have a bunch of websites to host, it helps to keep httpd.conf clean and put all your website entries in a separate file.
 
 Page down to the very end of httpd.conf.  You'll notice a bunch of other Includes there, ready to be uncommented as you need them in the future.  For now, just add our own:
+
 ```apache
 Include conf/websites.conf
 ```
 
 ## Create the files and directories we referred to in the configuration
 We go ahead and give ownership of the web directories to Apache, and set our users up as the group.  That way, the handful of us web developers can all edit the stuff in websites.  (To each his own, this is just how we do it)
+
 ```bash
 sudo mkdir -p /srv/sites
 sudo cp -R /usr/local/apache/htdocs /srv/sites/master
@@ -135,22 +141,26 @@ sudo touch /usr/local/apache/conf/websites.conf
 
 ## Starting at boot
 We'll use the apachectl script as the startup script during boot. Since we're using Ubuntu now, which uses sysv-rc-conf, instead of chkconfig, we can just symbolically link it.
+
 ```bash
 sudo ln -s /usr/local/apache/bin/apachectl /etc/init.d/apache
 ```
 
 Go into Ubuntu's SysV configuration tool and turn apache on for run levels 2,3,4,5.
+
 ```bash
 sudo sysv-rc-conf
 ```
 
 Apache should start up okay now.  If there's any errors, check the error log in `/var/log/httpd`.
+
 ```bash
 sudo service apache start
 ```
 ## Log Rotation
 We want to use the system's logrotate script to manage our logs. It needs to know where we keep our apache logs, and what to do with them. Create or edit the `/etc/logrotate.d/apache` file
 `sudo nano /etc/logrotate.d/apache`
+
 ```bash
 /var/log/httpd/*.log {
         monthly

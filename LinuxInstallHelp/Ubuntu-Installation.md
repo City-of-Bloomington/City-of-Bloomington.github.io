@@ -17,6 +17,7 @@ Linux filesystem standards recommend using `/srv` for data served by this server
 
 ## Ubuntu Post-install
 After doing a minimal ubuntu installation, here's the base set of stuff that we have the distribution install. Anything else not on this list will be compiled by hand and installed in `/usr/local`.
+
 ```bash
 sudo apt-get install build-essential \
 openssh-server \

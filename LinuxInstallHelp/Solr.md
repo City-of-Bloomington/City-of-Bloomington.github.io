@@ -48,6 +48,7 @@ sudo nano /usr/local/tomcat/conf/Catalina/localhost/solr.xml
 
 ## Copy the example solr_home configuration
 The source code you downloaded includes a directory of example configurations.  Copy the basic solr configuration to your SOLR_HOME directory.
+
 ```bash
 cd -R /usr/local/src/solr-4.5.1/example/solr /srv/solr_home
 ```
@@ -60,6 +61,7 @@ Seperate search indexes for Solr are called, "cores".  A single Solr web applica
 In the latest (4.4+) version of Solr, cores are just directories in your SOLR_HOME.  The simplest solution can be to just create a directory and let Solr use it's defaults for everything.  In our case, we want things a bit more precise.
 
 First, we want to rename the core to be called, "crm".
+
 ```bash
 cd /srv/solr_home
 sudo mv collection1 crm
@@ -74,9 +76,11 @@ We also need to update the core name in the solrconfig.xml.
 There are two lines to look for and change:  the data directory and the transaction log.  These settings are separated by a bit of distance in the file, so you'll need to page through the file, until you find them.
 
 Replace the existing values with the new, CRM named variables.  (Yes, that's right we're going to keep the log in the data directory.)
+
 ```bash
 sudo nano conf/solrconfig.xml
 ```
+
 ```xml
   <!-- Data Directory
 
@@ -86,7 +90,9 @@ sudo nano conf/solrconfig.xml
        configuration.
     -->
   <dataDir>${solr.crm.data.dir:}</dataDir>
+
 ```
+
 ```xml
     <!-- Enables a transaction log, used for real-time get, durability, and
          and solr cloud replica recovery.  The log can grow as big as
@@ -102,9 +108,11 @@ sudo nano conf/solrconfig.xml
 The example configuration also includes some lines loading external dependencies.  However, the example solrconfig.xml cannot really know ahead of time wher you've put your source code.  So, in order for these to load correctly, you would need to edit these lines, and put in the full path to the Solr source code your downloaded.
 
 Fortunately, these are only needed for some more advanced things you can do with Solr.  The CRM does not use any of this fancy stuff, and these are not needed.  So, you can safely just comment out these external dependencies.
+
 ```bash
 sudo nano conf/solrconfig.xml
 ```
+
 ```xml
 <!--
   <lib dir="../../../contrib/extraction/lib" regex=".*\.jar" />
@@ -122,6 +130,7 @@ sudo nano conf/solrconfig.xml
 ```
 ### Configure Logging
 Solr is set up to use Log4j, and if you do not configure it, Solr will not start up.  If you see this error in your catalina.out, your logging is not configured correctly.
+
 ```
 INFO: Deploying web application archive solr.war
 May 29, 2013 3:59:40 PM org.apache.catalina.core.StandardContext start
@@ -131,12 +140,14 @@ SEVERE: Context [/solr] startup failed due to previous errors
 ```
 
 You first have to add the jar files for log4j into the solr web app.
+
 ```bash
 cd /usr/local/src/solr-4.5.1/example/lib/ext
 sudo cp *.jar /srv/webapps/solr/WEB-INF/lib
 ```
 
 Then, you'll need to add the configuration file
+
 ```bash
 cd /srv/webapps/solr/WEB-INF
 sudo mkdir classes
@@ -145,6 +156,7 @@ sudo cp log4j.properties /srv/webapps/solr/WEB-INF/classes
 ```
 ## Put the Schema into place
 You have to tell Solr what fields each of your records will be attempting to store.  In the CRM application, we've included the Solr schema.xml that defines all the fields the CRM will be indexing in Solr.  You need to put the CRM schema.xml into place in your Solr core.
+
 ```bash
 sudo cp /srv/sites/crm/scripts/solr/schema.xml /srv/solr_home/crm/conf
 ```
@@ -157,6 +169,7 @@ The example log4j configuration is set to log everything at the INFO level.  Thi
 You will want to change the logging level from INFO to WARN, once you've got everything set up correctly.  This will still report any errors that might occur, but won't bother writing out all the details of normal operations.
 
 After you make a change to your file, you need to restart Tomcat for it to take effect.
+
 ```bash
 sudo service tomcat stop
 sudo service tomcat start
@@ -165,6 +178,7 @@ sudo service tomcat start
 ## Configuring CRM to talk to Solr
 
 Once Solr is up and running, you can edit `configuration.inc`
+
 ```php
 /**
  * Point to the Solr server

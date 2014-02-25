@@ -40,6 +40,7 @@ sudo ./configure --prefix=/usr/local/php \
 
 ### Ubuntu library directorys
 Ubuntu has moved the libraries around. For PHP to be able to find shared libraries for many of the extensions, you'll need to also include either
+
 ```bash
 --with-libdir=/lib/x86_64-linux-gnu
 or
@@ -55,6 +56,7 @@ sudo make install
 ## Apache Configuration
 PHP will automatically add in a line to httpd.conf to load the php module. To this line, we'll also need to add the application type so Apache will parse PHP files. I like to keep these lines together.
 `sudo nano /usr/local/apache/conf/httpd.conf`
+
 ```apache
 LoadModule php5_module        modules/libphp5.so    # Added automatically by PHP
 AddType application/x-httpd-php .php
@@ -69,7 +71,7 @@ PHP now ships with two example configurations. The production configuration cont
 
 We use the development/production configurations as appropriate for each server. There are only a few settings we need to configure in either of them. The settings we change are the same in either configuration.
 
-```
+```ini
 ; This directive determines whether or not PHP will recognize code between
 ; <? and ?> tags as PHP source which should be processed as such. It's been
 ; recommended for several years that you not use the short tag "short cut" and

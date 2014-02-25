@@ -16,6 +16,7 @@ sudo tar xzvf tomcat-connectors-1.2.XX-src.tar.gz
 
 ## Compile
 The source code is actually in the {{native}} subdirectory.  You'll need to go into that directory to do the configure, make, and make install.
+
 ```bash
 cd tomcat-connectors-1.2.XX-src/native
 
@@ -27,6 +28,7 @@ sudo make install
 
 ## Tomcat Configuration
 Copy the distributed workers.properties to the Tomcat install, just for convenience. It seems to make more sense there, than in Apache's conf.
+
 ```bash
 sudo cp /conf/workers.properties.minimal /usr/local/tomcat/conf/workers.properties
 ```
@@ -37,6 +39,7 @@ Also, we now change the name of the worker.  Instead of ajp13, we now call it "t
 
 Here's the final, full workers.properties that we're using
 `sudo nano /usr/local/tomcat/conf/workers.properties`
+
 ```apache
 # workers.properties.minimal -
 #
@@ -73,6 +76,7 @@ worker.jkstatus.type=status
 ## Apache Configuration
 Add this stuff to /usr/local/apache/conf/httpd.conf. It's a LoadModule command, so I usually put it right after the last load module stuff, near the top of httpd.conf.
 `sudo nano /usr/local/apache/conf/httpd.conf`
+
 ```apache
 # mod_JK stuff:
 LoadModule jk_module    modules/mod_jk.so

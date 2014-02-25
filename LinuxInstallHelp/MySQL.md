@@ -22,6 +22,7 @@ innodb_file_per_table=1
 
 ## Database Installation
 Ubuntu has already gone ahead and created initial databases and user accounts.  The databases it created won't have used the settings we just put into the configuration.  I typically, blow away Ubuntu's default databases and run MySQL's vanilla setup.  That way, I know the databases will use the settings I expect, and there won't be any surprises in there.
+
 ```bash
 sudo service mysql stop
 sudo rm -Rf /var/lib/mysql
@@ -30,9 +31,11 @@ sudo chown -R mysql /var/lib/mysql
 ```
 ## Database user accounts
 The vanilla install still has a root account that is wide open.  During any MySQL install, you will always need to lock down your user accounts.  I do this by wiping the user accounts and only installing my own user accounts.
+
 ```bash
 mysql -u root
 ```
+
 ```mysql
 use mysql;
 delete from user;
@@ -41,6 +44,7 @@ flush privileges;
 exit;
 ```
 Now I can log in as myself, and I should have a full root-enabled mysql account.  Make sure you can log in with the username and password you expect.  If it doesn't work, you can just go back to the Database Installation step, wipe the databases and redo it from there.
+
 ```bash
 mysql -p
 ```
