@@ -1,4 +1,6 @@
 name: City of Bloomington
-markdown: rdiscount
+markdown: redcarpet
 pygments: true
 baseurl:
+redcarpet:
+    extensions: ["fenced_code_blocks"]
