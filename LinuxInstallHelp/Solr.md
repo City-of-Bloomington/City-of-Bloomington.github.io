@@ -66,7 +66,7 @@ sudo mv collection1 crm
 sudo nano crm/core.properties
 ```
 
-```txt
+```
 name=crm
 ```
 
