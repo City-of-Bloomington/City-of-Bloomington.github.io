@@ -1,3 +1,7 @@
+---
+layout: default
+title: Apache Install
+---
 ## Download
 I grab the tarball of the latest unix source from Apache:
 http://httpd.apache.org/

@@ -1,3 +1,7 @@
+---
+layout: default
+title: Tomcat Install
+---
 # Tomcat
 ## Download
 http://tomcat.apache.org/

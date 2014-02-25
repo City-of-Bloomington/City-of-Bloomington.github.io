@@ -1,3 +1,7 @@
+---
+layout: default
+title: Tomcat Connectors
+---
 # Tomcat Connectors
 This Apache module allows Apache to hand off Tomcat stuff directly to Tomcat via threads, instead of doing a proxy. This makes it easy for Apache to be configured to serve static content and still hand off java stuff to Tomcat.
 

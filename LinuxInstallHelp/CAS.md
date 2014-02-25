@@ -1,3 +1,7 @@
+---
+layout: default
+title: CAS Install
+---
 [[CAS|http://www.jasig.org/cas]] (Single Sign On) is supported,
 but is commented out in the `configuration.inc` by default. If you have a CAS
 server set up, uncomment the CAS settings and fill in the values for your CAS

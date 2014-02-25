@@ -1,3 +1,7 @@
+---
+layout: default
+title: PHP Install
+---
 These instructions are the same for PHP version 5.3-5.5
 
 ## Download

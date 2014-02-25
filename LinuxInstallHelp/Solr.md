@@ -1,12 +1,7 @@
-CRM allows for custom fields to be defined at both the Ticket level and the
-Issue level. Storing additional fields on an ad-hoc basis in a relational
-database makes searching for records based on those fields very challenging.
-
-To solve this, CRM indexes all Ticket records in Solr for searching. Solr lets
-us save whatever fields are required for each record and still search across all
-of the fields. Solr documents do not need to have the same set of fields from
-one document to the next.
-
+---
+layout: default
+title: Solr Install
+---
 ## Installing
 These instructions work for Solr 4.4+.  Previous Solr web apps have slightly more involved ways of configuring multiple cores.  The overall process is the same, just the contents of the actual configuration xml files are going to be different.
 

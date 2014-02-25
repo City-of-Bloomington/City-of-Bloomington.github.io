@@ -1,3 +1,7 @@
+---
+layout: default
+title: Ubuntu Installation
+---
 ## Ubuntu Server Minimal install
 There are lots of linux distributions out there, and any one will work.  Choose the distribution that you're most confortable with.  These days, I typically use Ubuntu, but compile Apache and PHP from scratch.  I'm not too fond of how Ubuntu configures Apache and PHP.  For me, it's just easiest to work from a vanilla install of Apache and PHP.  However, I have recently started relying on Ubuntu's distribution of MySQL.  The latest versions of MySQL and Maria have become a lot more complicated to compile - and Ubuntu doesn't butcher that configuration too badly.
 
