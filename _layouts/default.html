@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>{{page.title}}</title>
-	<style></style>
-</head>
+{% include header.html %}
 <body>
-{{content}}
+{% include banner.html %}
+<div id="panel-container">
+	<div id="panel-one">
+	</div>
+	<div id="content-panel">
+		{{content}}
+	</div>
+</div>
 </body>
 </html>
