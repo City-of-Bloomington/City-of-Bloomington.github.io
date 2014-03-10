@@ -38,7 +38,8 @@ sudo ./configure --prefix=/usr/local/apache \
 --enable-cgi \
 --disable-status \
 --disable-userdir \
---disable-autoindex
+--disable-autoindex \
+--with-mpm=prefork
 
 sudo make
 sudo make install
