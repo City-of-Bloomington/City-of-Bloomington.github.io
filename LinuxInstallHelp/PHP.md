@@ -17,6 +17,7 @@ cd php-5.5.X
 ```bash
 sudo ./configure --prefix=/usr/local/php \
 --with-apxs2=/usr/local/apache/bin/apxs \
+--without-pear \
 --disable-short-tags \
 --disable-cgi \
 --enable-mbstring \
