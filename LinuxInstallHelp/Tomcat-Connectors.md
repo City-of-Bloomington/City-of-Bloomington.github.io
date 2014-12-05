@@ -27,10 +27,10 @@ sudo make install
 ```
 
 ## Tomcat Configuration
-Copy the distributed workers.properties to the Tomcat install, just for convenience. It seems to make more sense there, than in Apache's conf.
+We now put the worker.proporties file somewhere Apache can find it. Currently, we're putting it into the Apache conf directory along with all the other stuff for Apache.
 
 ```bash
-sudo cp /conf/workers.properties.minimal /usr/local/tomcat/conf/workers.properties
+sudo cp /conf/workers.properties.minimal /usr/local/apache/conf/workers.properties
 ```
 
 We're only going to want the ajp13 on port 8009. For some reason, the default workers.properties.minimal did not include the ajp13w worker (which it defined) in the worker.list. We had to add it by hand.
@@ -38,7 +38,7 @@ We're only going to want the ajp13 on port 8009. For some reason, the default wo
 Also, we now change the name of the worker.  Instead of ajp13, we now call it "tomcat".  This is what shows up in the Apache conf when we want to send stuff to tomcat.  Renaming it to "tomcat" here avoids a lot of unnecessary confusion later on.
 
 Here's the final, full workers.properties that we're using
-`sudo nano /usr/local/tomcat/conf/workers.properties`
+`sudo nano /usr/local/apache/conf/workers.properties`
 
 ```apache
 # workers.properties.minimal -

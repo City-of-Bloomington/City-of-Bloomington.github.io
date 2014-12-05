@@ -4,6 +4,7 @@ title: MySQL Install
 ---
 ## Install from Ubuntu
 I've given up on comiling MySQL from source. MySQL and Maria's compiling process has gotten way more complicated. Ubuntu's distro version works just fine for our needs. PHP compiles against it with no problems.
+
 ```bash
 sudo apt-get install mysql-client mysql-server libmysqlclient-dev
 ```

@@ -147,6 +147,20 @@ We'll use the apachectl script as the startup script during boot. Since we're us
 sudo ln -s /usr/local/apache/bin/apachectl /etc/init.d/apache
 ```
 
+Ubuntu has started requiring LSB information in the startup scripts, which Apache does not ship with.  You might need to paste the LSB header into apachectl
+```bash
+### BEGIN INIT INFO
+# Provides:          apache
+# Required-Start:    $local_fs $remote_fs $network $syslog $named
+# Required-Stop:     $local_fs $remote_fs $network $syslog $named
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# X-Interactive:     true
+# Short-Description: Apache web server
+# Description:       Start the web server
+### END INIT INFO
+```
+
 Go into Ubuntu's SysV configuration tool and turn apache on for run levels 2,3,4,5.
 
 ```bash

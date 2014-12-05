@@ -2,15 +2,15 @@
 layout: default
 title: PHP Install
 ---
-These instructions are the same for PHP version 5.3-5.5
+These instructions are the same for PHP version 5.3 >
 
 ## Download
 Grab the latest source code tarball from:
 http://www.php.net/downloads.php
 
 ```bash
-tar xzvf php-5.5.X.tar.gz
-cd php-5.5.X
+tar xzvf php-5.X.X.tar.gz
+cd php-5.X.X
 ```
 
 ## Configure, Make, and Install
@@ -37,6 +37,7 @@ sudo ./configure --prefix=/usr/local/php \
 --with-jpeg-dir=/usr \
 --with-freetype-dir=/usr \
 --enable-intl \
+--with-gettext \
 ```
 
 ### Ubuntu library directorys
@@ -119,7 +120,7 @@ date.default_longitude = -86.536806
 intl.default_locale = en_US
 ```
 
-Those last ones are important to uReport.  uReport uses the lat, long configured on the server as the default coordinates for the maps.
+The lat/long ini settings are used by a few of our applications, like uReport, that include mapping capabilities. Google Maps might be able to help you find coordinates for your location.
 
 ## Restart Apache
 `sudo service apache restart`

@@ -16,37 +16,23 @@ Linux filesystem standards recommend using `/srv` for data served by this server
 * `/srv` ~all available
 
 ## Ubuntu Post-install
-After doing a minimal ubuntu installation, here's the base set of stuff that we have the distribution install. Anything else not on this list will be compiled by hand and installed in `/usr/local`.
+After doing a minimal ubuntu installation, here's the base set of stuff that we have the distribution install.
 
 ```bash
 sudo apt-get install build-essential \
-openssh-server \
-man-db \
-cron \
-anacron \
-logrotate \
 autoconf \
 libncurses5-dev \
 libssl-dev \
 ntp \
-ufw \
-acpid \
-sysv-rc-conf \
-nano \
+emacs \
 zip \
 unzip \
 subversion \
 git \
-aptitude \
-rsync \
-dnsutils \
-libmysqlclient-dev \
 libxml2-dev \
 libxslt-dev \
 libldap2-dev \
 libtidy-dev \
-curl \
-wget \
 libcurl4-openssl-dev \
 imagemagick \
 libjpeg-dev \

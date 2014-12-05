@@ -107,7 +107,7 @@ sudo nano conf/solrconfig.xml
 #### Comment out the extra, external dependencies
 The example configuration also includes some lines loading external dependencies.  However, the example solrconfig.xml cannot really know ahead of time wher you've put your source code.  So, in order for these to load correctly, you would need to edit these lines, and put in the full path to the Solr source code your downloaded.
 
-Fortunately, these are only needed for some more advanced things you can do with Solr.  The CRM does not use any of this fancy stuff, and these are not needed.  So, you can safely just comment out these external dependencies.
+Fortunately, these are only needed for some more advanced things you can do with Solr.  None of our applications use any of this fancy stuff, and these are not needed.  So, you can safely just comment out these external dependencies.
 
 ```bash
 sudo nano conf/solrconfig.xml
@@ -155,7 +155,7 @@ cd /usr/local/src/solr-4.5.1/example/resources
 sudo cp log4j.properties /srv/webapps/solr/WEB-INF/classes
 ```
 ## Put the Schema into place
-You have to tell Solr what fields each of your records will be attempting to store.  In the CRM application, we've included the Solr schema.xml that defines all the fields the CRM will be indexing in Solr.  You need to put the CRM schema.xml into place in your Solr core.
+You have to tell Solr what fields each of your records will be attempting to store.  For instance, in uReport, we've included the Solr schema.xml that defines all the fields the CRM will be indexing in Solr.  You need to put the CRM schema.xml into place in your Solr core.
 
 ```bash
 sudo cp /srv/sites/crm/scripts/solr/schema.xml /srv/solr_home/crm/conf
@@ -173,17 +173,4 @@ After you make a change to your file, you need to restart Tomcat for it to take 
 ```bash
 sudo service tomcat stop
 sudo service tomcat start
-```
-
-## Configuring CRM to talk to Solr
-
-Once Solr is up and running, you can edit `configuration.inc`
-
-```php
-/**
- * Point to the Solr server
- */
-define('SOLR_SERVER_HOSTNAME', 'localhost');
-define('SOLR_SERVER_PORT', 8080);
-define('SOLR_SERVER_PATH', '/solr/crm');
 ```
