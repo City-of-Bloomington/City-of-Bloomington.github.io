@@ -2,6 +2,7 @@
 layout: default
 title: Solr Install
 ---
+# SOLR
 ## Installing
 These instructions work for Solr 4.4+.  Previous Solr web apps have slightly more involved ways of configuring multiple cores.  The overall process is the same, just the contents of the actual configuration xml files are going to be different.
 

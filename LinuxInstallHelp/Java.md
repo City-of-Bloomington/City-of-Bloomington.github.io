@@ -2,6 +2,7 @@
 layout: default
 title: Java Install
 ---
+# Java
 ## Download
 I still use Oracle's java, instead of OpenJDK.  You can download Java from http://www.oracle.com/technetwork/java/index.html.  You will need the full JDK. I usually download the tarball version.  I don't have to worry about any package management problems with that one.
 

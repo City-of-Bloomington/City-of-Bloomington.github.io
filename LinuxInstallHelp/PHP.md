@@ -2,6 +2,7 @@
 layout: default
 title: PHP Install
 ---
+# PHP
 These instructions are the same for PHP version 5.3 >
 
 ## Download

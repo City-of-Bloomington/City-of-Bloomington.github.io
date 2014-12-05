@@ -2,6 +2,7 @@
 layout: default
 title: MySQL Install
 ---
+# MySQL
 ## Install from Ubuntu
 I've given up on comiling MySQL from source. MySQL and Maria's compiling process has gotten way more complicated. Ubuntu's distro version works just fine for our needs. PHP compiles against it with no problems.
 
