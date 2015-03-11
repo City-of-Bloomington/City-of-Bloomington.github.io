@@ -149,6 +149,7 @@ sudo ln -s /usr/local/apache/bin/apachectl /etc/init.d/apache
 ```
 
 Ubuntu has started requiring LSB information in the startup scripts, which Apache does not ship with.  You might need to paste the LSB header into apachectl
+
 ```bash
 ### BEGIN INIT INFO
 # Provides:          apache
