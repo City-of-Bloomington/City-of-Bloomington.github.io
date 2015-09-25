@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
-{% include header.html %}
+{% include head.html %}
 <body>
-{% include banner.html %}
-<div id="panel-container">
-	<div id="panel-one">
-		{% include navLinuxInstallHelp.html %}
+{% include header.html %}
+<main>
+	<div class="container full-width">
+		<div id="content-panel">
+			{{content}}
+		</div>
 	</div>
-	<div id="content-panel">
-		{{content}}
-	</div>
-</div>
+</main>
 </body>
 </html>
