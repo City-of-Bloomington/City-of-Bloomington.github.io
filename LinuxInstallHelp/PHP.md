@@ -26,7 +26,6 @@ sudo ./configure --prefix=/usr/local/php \
 --enable-exif \
 --with-ldap \
 --with-zlib \
---with-mysql=/usr \
 --with-mysqli=/usr/bin/mysql_config \
 --with-pdo-mysql=/usr \
 --with-openssl \
