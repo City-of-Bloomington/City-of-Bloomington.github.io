@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: guide
 title: Ubuntu Installation
 ---
 # Ubuntu Server Install
