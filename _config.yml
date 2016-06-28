@@ -1,6 +1,6 @@
 name: City of Bloomington
 markdown: redcarpet
-pygments: true
+highlighter: rogue
 baseurl:
 redcarpet:
     extensions: ["fenced_code_blocks"]
