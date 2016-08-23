@@ -40,7 +40,8 @@ libpng12-dev \
 libxpm-dev \
 libfreetype6-dev \
 libpcre3-dev \
-libicu-dev
+libicu-dev \
+openssh-server
 ```
 
 ## Firewall
