@@ -30,13 +30,13 @@ unzip \
 subversion \
 git \
 libxml2-dev \
-libxslt-dev \
+libxslt1-dev \
 libldap2-dev \
 libtidy-dev \
 libcurl4-openssl-dev \
 imagemagick \
 libjpeg-dev \
-libpng-dev \
+libpng12-dev \
 libxpm-dev \
 libfreetype6-dev \
 libpcre3-dev \
