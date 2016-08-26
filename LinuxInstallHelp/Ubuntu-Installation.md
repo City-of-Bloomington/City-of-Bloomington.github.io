@@ -41,7 +41,8 @@ libxpm-dev \
 libfreetype6-dev \
 libpcre3-dev \
 libicu-dev \
-openssh-server
+openssh-server \
+python2.7
 ```
 
 ## Firewall
